@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { MyContext } from "../context/MyContext";
 
 const Header = () => {
     const activeClass = ({ isActive }) => (isActive ? "active" : "");
+    const { countProducts} = useContext(MyContext);
+    const { allProducts } = useContext(MyContext);
+
 
     return (
         <div className="header-container">
@@ -32,7 +37,7 @@ const Header = () => {
                 <NavLink className={activeClass} to="/cart">
                     <div className="header-r">
                         <i className="fa-solid fa-cart-shopping"></i>
-                        <p className="cart-num">1</p>
+                        <p className={`cart-num ${allProducts.length == 0 ? 'hidden' : ''}`}>{countProducts}</p>
                     </div>
                 </NavLink>
             </header>
