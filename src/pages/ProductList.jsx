@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
 
 const ProductList = () => {
     const chile = new Intl.NumberFormat("es-CL");
-    const { pizzas, setPizzas } = useContext(MyContext);
+    const { pizzas } = useContext(MyContext);
     const { allProducts, setAllProducts } = useContext(MyContext);
     const { countProducts, setCountProducts } = useContext(MyContext);
     const { total, setTotal } = useContext(MyContext);
@@ -25,16 +26,23 @@ const ProductList = () => {
     console.log(allProducts);
     console.log(total);
 
+    const navigate = useNavigate();
+
+    const handleClick = (pizza) => {
+        console.log(pizza.id);
+        navigate(`/${pizza.id}`);
+    };
+
 
     return (
         <div className="product-list-container">
             <div className="product-list">
                 {pizzas.map((pizza) => (
                     <div className="product-card" id={pizza.id} key={pizza.id}>
-                        <div className="img-container">
+                        <div className="img-container" onClick={() => handleClick(pizza)}>
                             <img src={pizza.img} alt={pizza.name} />
                         </div>
-                        <h2>
+                        <h2 onClick={() => handleClick(pizza)}>
                             {pizza.name.charAt(0).toUpperCase() +
                                 pizza.name.slice(1)}
                         </h2>
