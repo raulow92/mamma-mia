@@ -8,7 +8,6 @@ const Header = () => {
     const { countProducts} = useContext(MyContext);
     const { allProducts } = useContext(MyContext);
 
-
     return (
         <div className="header-container">
             <header>

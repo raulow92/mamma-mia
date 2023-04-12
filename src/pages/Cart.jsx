@@ -13,7 +13,6 @@ const Cart = () => {
             const products = allProducts.map((item) =>
                 item.id === pizza.id ? { ...item, qty: item.qty + 1 } : item
             );
-            console.log(pizza);
             setCountProducts(countProducts + 1);
             setTotal(total + pizza.price);
             return setAllProducts([...products]);
@@ -23,7 +22,6 @@ const Cart = () => {
     const onSubsProduct = (pizza) => {
         if (pizza.qty == 1) {
             onDeleteProduct(pizza)
-
             return
         }
 
@@ -31,7 +29,6 @@ const Cart = () => {
             const products = allProducts.map((item) =>
                 item.id === pizza.id ? { ...item, qty: item.qty - 1 } : item
             );
-            console.log(pizza);
             setCountProducts(countProducts - 1);
             setTotal(total - pizza.price);
             return setAllProducts([...products]);
@@ -53,8 +50,6 @@ const Cart = () => {
         setCountProducts(0)
         setTotal(0)
     }
-    console.log(allProducts);
-    console.log(countProducts);
 
     return (
         countProducts ?
@@ -76,11 +71,11 @@ const Cart = () => {
                                 </div>
                             </div>
                             <div className="card-r">
-                                <i onClick={() => onSubsProduct(pizza)} class="fa-solid fa-minus"></i>
+                                <i onClick={() => onSubsProduct(pizza)} className="fa-solid fa-minus"></i>
                                 <p className="each-qty">{pizza.qty}</p>
-                                <i onClick={() => onAddProduct(pizza)} class="fa-solid fa-plus"></i>
+                                <i onClick={() => onAddProduct(pizza)} className="fa-solid fa-plus"></i>
                                 <p className="subtotal">${chile.format(pizza.price * pizza.qty)}</p>
-                                <i onClick={() => onDeleteProduct(pizza)} class="fa-solid fa-trash"></i>
+                                <i onClick={() => onDeleteProduct(pizza)} className="fa-solid fa-trash"></i>
                             </div>
                         </div>
                     ))}

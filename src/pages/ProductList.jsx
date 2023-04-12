@@ -23,16 +23,11 @@ const ProductList = () => {
         setCountProducts(countProducts + pizza.qty)
         setAllProducts([...allProducts, pizza]);
     };
-    console.log(allProducts);
-    console.log(total);
 
     const navigate = useNavigate();
-
     const handleClick = (pizza) => {
-        console.log(pizza.id);
         navigate(`/${pizza.id}`);
     };
-
 
     return (
         <div className="product-list-container">

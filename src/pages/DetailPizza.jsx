@@ -26,8 +26,6 @@ const DetailPizza = () => {
         setCountProducts(countProducts + pizza.qty)
         setAllProducts([...allProducts, pizza]);
     };
-    console.log(allProducts);
-    console.log(total);
 
     return (
         <>
