@@ -8,7 +8,8 @@
 
 #root {
     background-color: #f5f5f5;
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 0;
 }
 
 /* HEADER */
@@ -423,4 +424,50 @@ header a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 1020px) {
+    header {
+        justify-content: space-between;
+    }
+
+    .header-c {
+        display: none;
+    }
+
+    .header-r {
+        margin-left: 20px;
+    }
+
+    .product-card, .product-card button {
+        width: calc(100% - 30px)
+    }
+
+    .cart {
+        grid-template-columns: 1fr;
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .cart-l {
+        width: 100%;
+    }
+
+    .img-cart {
+        display: none;
+        width: 80px;
+    }
+
+    .title-total h2 {
+        font-size: 16px;
+    }
+
+    .title-total p {
+        font-size: 14px;
+    }
+
+    .cart-r {
+        width: calc(100% - 20px);
+        margin: 10px;
+    }
 }
