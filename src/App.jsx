@@ -12,7 +12,7 @@ function App() {
     const [countProducts, setCountProducts] = useState(0);
 
     const getPizzas = async () => {
-        const res = await fetch("../src/data/pizzas.json");
+        const res = await fetch("/src/data/pizzas.json");
         let data = await res.json();
         setPizzas(data);
     };
